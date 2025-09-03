@@ -1,15 +1,22 @@
 class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
-        int insertPost=0;
-        for(int i=0; i<nums.size(); i++){
-            if(nums[i] !=0){
-                nums[insertPost]=nums[i];
-                insertPost++;
+        int n=nums.size();
+
+        vector<int> temp;
+        for(int i=0; i<n; i++){
+            if(nums[i]!=0){
+                temp.push_back(nums[i]);
             }
         }
-        while(insertPost < nums.size()){
-            nums[insertPost++]=0;
+
+        while(temp.size() < n){
+            temp.push_back(0);
         }
+
+        for(int i=0; i<n; i++){
+            nums[i]=temp[i];
+        }
+
     }
 };
